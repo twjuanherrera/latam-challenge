@@ -1,1 +1,5 @@
+# Esta librería proporciona herramientas para perfilar el uso de memoria en Python
 memory-profiler==0.61.0
+
+# IPython es una poderosa interfaz interactiva para Python, que permite recardar el Kernel si detecta cambios en los archivos
+ipython==8.23.0
