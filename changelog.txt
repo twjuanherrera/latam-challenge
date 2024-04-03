@@ -1,3 +1,6 @@
+42a4a2e Merge branch 'release/v0.0.1' of https://github.com/twjuanherrera/latam-challenge into release/v0.0.1
+c6d9359 rel: First release test with gitflow
+b3315da rel: First release test with gitflowase test with gitflow
 10f0bff Merge tag '0.0.1' into develop
 846f1a7 Merge branch 'release/0.0.1' First release test with gitflow
 8617bb8 Merge pull request #4 from twjuanherrera/feature_q1_time
