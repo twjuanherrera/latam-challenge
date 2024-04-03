@@ -1,3 +1,8 @@
+c6a4989 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+4af1588 Merge tag 'v0.0.1' into develop
+5d576de Merge branch 'release/v0.0.1'
+7585fb9 Merge pull request #5 from twjuanherrera/release/v0.0.1
+c7002c8 rel: Second release test with gitflow
 42a4a2e Merge branch 'release/v0.0.1' of https://github.com/twjuanherrera/latam-challenge into release/v0.0.1
 c6d9359 rel: First release test with gitflow
 b3315da rel: First release test with gitflowase test with gitflow
