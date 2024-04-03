@@ -1,0 +1,15 @@
+10f0bff Merge tag '0.0.1' into develop
+846f1a7 Merge branch 'release/0.0.1' First release test with gitflow
+8617bb8 Merge pull request #4 from twjuanherrera/feature_q1_time
+240fc2d feat: q1_time tests
+a4627a6 Merge pull request #3 from twjuanherrera/feature_notebook
+abb7b4f feat: jupyter notebook first tests
+67f9ff1 Merge pull request #2 from twjuanherrera/feature_requirements
+0aef729 feat: ipython for automatic Kernel and libraries descriptions
+b91dfa2 Merge pull request #1 from twjuanherrera/feature_ignore
+7fb3549 Revert "feat: ipython for automatic Kernel and libraries descriptions"
+fc9a832 feat: ignore Mac DS_Store
+87102b7 feat: ignore checkpoints folder
+cbb3e5b feat: ignore checkpoints
+e58517a feat: ipython for automatic Kernel and libraries descriptions
+2b1647c Add project structure and basic files
