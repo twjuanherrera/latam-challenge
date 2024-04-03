@@ -1,1 +1,2 @@
-memory-profiler==0.61.0
+memory-profiler==0.61.0  # Librería para perfilamiento de memoria
+ipython==8.23.0  # Consola interactiva avanzada para Python
