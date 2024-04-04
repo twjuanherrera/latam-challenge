@@ -1,5 +1,1 @@
 memory-profiler==0.61.0 # Librería para perfilamiento de memoria
-ipython==8.18.1         # Consola interactiva avanzada para Python
-findspark==1.4.2        # Biblioteca para agregar la instalación de Spark al PYTHONPATH en Python.
-pyspark==3.0.2          # Biblioteca principal para interactuar con Spark desde Python, incluida la creación de sesiones Spark y la manipulación de datos en Spark DataFrames.
-py4j==0.10.9            # Librería de conexión entre Python y Java
