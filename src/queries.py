@@ -1,7 +1,9 @@
 """
 The top 10 dates with the most tweets. Mention the user (username) with the most posts for each of those days.
+Assumption: In cases where users have the same number of tweets on the same date, the user whose username comes first alphabetically should be selected.
+Assumption: A valid tweet has an id
 """
-top_10_users_and_dates = r"""
+top_dates_with_top_users = r"""
     WITH 
     TopDates AS (
         SELECT
@@ -45,8 +47,10 @@ top_10_users_and_dates = r"""
 
 """
 Top 10 most used emojis with their respective counts.
+Assumption: The query does not contain duplicate entries, as the tweet with 'id = 1362813218952007687' contains two heart and two fist emojis.
+Assumption: A valid tweet has an id
 """
-top_10_used_emojis = r"""
+top_emojis = r"""
     WITH 
     ExtractedEmojis AS (
         SELECT
@@ -73,6 +77,31 @@ top_10_used_emojis = r"""
     FROM ExtractedEmojis
     CROSS JOIN UNNEST(emojis) AS emoji
     GROUP BY emoji
+    ORDER BY count DESC
+    LIMIT 10
+"""
+
+"""
+Top 10 all-time most influential users (username) based on the count of mentions (@) each of them receives.
+Assumption: A valid tweet has an id
+"""
+top_influential_users = r"""
+    WITH 
+    MentionedUsersCount AS (
+        SELECT
+            user.username AS username,
+            COUNT(user.username) AS count
+        FROM
+            tweets_dataset.tweets as TW,
+            UNNEST(mentionedUsers) AS user
+        WHERE TW.id IS NOT NULL
+        GROUP BY username
+    )
+
+    SELECT
+        username,
+        count AS mention_count
+    FROM MentionedUsersCount
     ORDER BY count DESC
     LIMIT 10
 """
