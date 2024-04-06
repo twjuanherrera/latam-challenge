@@ -1,5 +1,23 @@
 from typing import List, Tuple
-from datetime import datetime
+import datetime
+from google.cloud import bigquery
+from processing import process_bigquery_results
+from memory_profiler import profile
 
-def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
-    pass
+@profile
+def q1_memory(
+    client: bigquery.Client,
+    query: str
+) -> List[Tuple[datetime.date, str]]:
+    """
+    Executes a BigQuery SQL query and returns a list of tuples containing dates and strings extracted from the results.
+
+    Args:
+        client (bigquery.Client): A BigQuery client object.
+        query (str): The BigQuery SQL query to be executed.
+
+    Returns:
+        List[Tuple[datetime.date, str]]: A list of tuples where each tuple contains a datetime.date object and a string.
+    """
+
+    return process_bigquery_results(client, query)
