@@ -1,6 +1,6 @@
 import time
 
-def measure_elapsed_time(
+def measure_notebook_elapsed_time(
     start_time: str
 ) -> float:
     """
@@ -17,7 +17,7 @@ def measure_elapsed_time(
     elapsed_time = end_time - float(start_time)
     return elapsed_time  # Return the elapsed time for further use
 
-def print_elapsed_time(
+def print_notebook_elapsed_time(
     elapsed_time: float
 ) -> None:
     """
@@ -35,4 +35,4 @@ def print_elapsed_time(
             elapsed_time /= 60
             time_unit = "hours"
 
-    print(f"Elapsed time: {elapsed_time:.2f} {time_unit}")
+    print(f"Elapsed time in the notebook: {elapsed_time:.2f} {time_unit}")
