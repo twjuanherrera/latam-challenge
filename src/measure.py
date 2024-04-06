@@ -1,3 +1,5 @@
+import time
+
 def measure_elapsed_time(
     start_time: str
 ) -> float:
