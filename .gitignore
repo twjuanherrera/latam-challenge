@@ -1,5 +1,5 @@
 *checkpoint*
 /.ipynb_checkpoints
 .DS_Store
-/.tmp.driveupload
 *pycache*
+*tmp*
