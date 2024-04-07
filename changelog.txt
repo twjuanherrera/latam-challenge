@@ -1,3 +1,206 @@
+c53c8cf Merge pull request #88 from twjuanherrera/feature/storage
+4cdae8e Merge pull request #87 from twjuanherrera/feature/q3_time
+64de2b9 Merge pull request #86 from twjuanherrera/feature/q3_memory
+f777ddc Merge pull request #85 from twjuanherrera/feature/q2_time
+b73f82a Merge pull request #84 from twjuanherrera/feature/q2_memory
+14b5d50 Merge pull request #83 from twjuanherrera/feature/q1_time
+b63630a Merge pull request #82 from twjuanherrera/feature/q1_memory
+70a7d2c Merge pull request #81 from twjuanherrera/feature/processing
+cba754a Merge pull request #80 from twjuanherrera/feature/measure
+e1698fc Merge pull request #79 from twjuanherrera/feature/libraries
+86fe27c Merge pull request #78 from twjuanherrera/feature/ingest
+e3b76db Merge pull request #77 from twjuanherrera/feature/gdrive
+1e3dfc1 Merge pull request #76 from twjuanherrera/feature/common
+9251df3 feat: clean code and disk processing prevention in cloud storage
+a39dd28 feat: final commit for queries
+24d9f94 feat: final commit for queries
+7b69952 feat: final commit for queries
+2850d6f feat: final commit for queries
+ab29cfa feat: final commit for queries
+ea67593 feat: final commit for queries
+046e549 feat: final commit for processing functions
+c989950 feat: final commit for measure functions
+11e84df feat: finall commit for libraries functions
+1e4c3ee feat: final commit for ingest functions
+a2fccf1 add: final commit for gdrive functions
+c7f29c6 feat: clean code and disk processing prevention
+3d09c6a Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+4a922ad Merge branch 'feature/test_storage' into develop
+22fc1ed Merge branch 'feature/test_q3_time' into develop
+aac9664 Merge branch 'feature/test_q3_memory' into develop
+06d7fbf Merge branch 'feature/test_q2_time' into develop
+6f00d46 Merge branch 'feature/test_q2_memory' into develop
+b324b38 Merge branch 'feature/test_q1_time' into develop
+5288a52 Merge branch 'feature/test_q1_memory' into develop
+f7421a0 Merge branch 'feature/test_processing' into develop
+f172351 Merge branch 'feature/test_measure' into develop
+0ffa774 Merge branch 'feature/test_libraries' into develop
+b861367 Merge branch 'feature/test_ingest' into develop
+cf5cdd4 Merge branch 'feature/test_gdrive' into develop
+60567dd Merge branch 'feature/test_common' into develop
+d8f14df Merge pull request #75 from twjuanherrera/feature/notebook
+f085db8 Merge pull request #74 from twjuanherrera/feature/test_storage
+523f057 Merge pull request #73 from twjuanherrera/feature/test_q3_time
+8d733a8 Merge pull request #72 from twjuanherrera/feature/test_q3_memory
+6e62c1d Merge pull request #71 from twjuanherrera/feature/test_q2_time
+b1e9616 Merge pull request #70 from twjuanherrera/feature/test_q2_memory
+3f4990b Merge pull request #69 from twjuanherrera/feature/test_q1_time
+f86c574 Merge pull request #68 from twjuanherrera/feature/test_q1_memory
+80139b4 Merge pull request #67 from twjuanherrera/feature/test_processing
+40e06a9 Merge pull request #66 from twjuanherrera/feature/test_measure
+82e9f4d Merge pull request #65 from twjuanherrera/feature/test_libraries
+2884db2 Merge pull request #64 from twjuanherrera/feature/test_ingest
+a3232d4 Merge pull request #63 from twjuanherrera/feature/test_gdrive
+90a05ec Merge pull request #62 from twjuanherrera/feature/test_common
+5f612e8 feat: Final commit for notebook
+aca3b4a feat: new testing for google cloud storage
+d817233 feat: new tests for top 10 mentioned users with memory measure
+f491ced feat: new tests for third query memory measure
+759a920 feat: new tests for 2nd query with time measure
+d07a997 feat: new tests for question 2 memory measure
+8763d19 feat: new test for question 1 time measure
+ade80ce feat: new tests for question 1 memory approach
+9bdd395 feat: new tests for processing functions
+b23e4f2 feat: new unit tests for measuring
+8162750 feat: new libraries functions unit tests
+7b77701 feat: new ingest functions unit tests
+4748b41 feat: new gdrive unit testing
+b2ce840 feat: New common functions unit testing
+4cfb594 Merge pull request #61 from twjuanherrera/feature/gdrive
+23e9dbc Merge pull request #60 from twjuanherrera/feature/ingest
+281e593 Merge pull request #59 from twjuanherrera/feature/libraries
+3665dd2 Merge pull request #58 from twjuanherrera/feature/measure
+6106d25 Merge pull request #57 from twjuanherrera/feature/storage
+fe88530 Merge pull request #55 from twjuanherrera/feature/q2_time
+0e2b4af Merge pull request #56 from twjuanherrera/feature/q3_time
+1020c55 Merge pull request #54 from twjuanherrera/feature/q1_time
+7bb9935 Merge pull request #53 from twjuanherrera/feature/q2_memory
+4f46882 Merge pull request #52 from twjuanherrera/feature/q1_memory
+92d3ad3 Merge pull request #51 from twjuanherrera/feature/notebook
+c7705d6 Merge pull request #50 from twjuanherrera/feature/requirements
+d875843 Merge pull request #49 from twjuanherrera/feature/common
+c703a8d feat: clean code for measure functions
+40f16d3 feat: challenge question 3 time completion
+c9058eb feat: challenge question 2 time completion
+5b309bd feat: challenge question 1 time completion
+0938e15 feat: challenge question 3 completion
+f52a2d9 feat: challenge question 2 completion
+4facbb4 feat: challenge question 1 memory measure
+ac0cd24 feat: Separate files and measure time and memory
+64c41bf feat: New line_profiler library
+f45b607 feat: new common functions feature
+7795db8 feat: new storage feature
+95cf035 feat: new ingest feature
+4ac2ed3 feat: new GDrive feature
+20b1c13 feat: New libraries feature
+d28115a Merge pull request #48 from twjuanherrera/feature/measure
+d99d68f feat: measure recovery
+7fc3bbe Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+c6cc4de Merge branch 'feature/queries' into develop
+cc08468 Merge pull request #47 from twjuanherrera/feature/queries
+1e6630d feat: queries recovery
+0acd8e1 Merge pull request #46 from twjuanherrera/feature/notebook
+ade0bf9 feat: challenges testing
+d38d3d9 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+fdad5f8 Merge pull request #45 from twjuanherrera/feature/q1_time
+e8b738a Merge branch 'feature/q1_time' into develop
+1dcb051 Merge pull request #44 from twjuanherrera/feature/notebook
+73fd8ed feat: q1_time recovery
+1d929b0 feat: Notebook backup recovered
+1e72148 Merge branch 'feature/notebook' into develop
+df00e93 feat: fixed notebook
+5ae47e1 feat: Notebook recovery
+19861b6 feat Ignore pycache and tmp
+524aa5a Merge pull request #41 from twjuanherrera/revert-40-revert-38-feature/q1_time
+da65972 Revert "Revert 38 feature/q1 time"
+853c9c4 Merge pull request #40 from twjuanherrera/revert-38-feature/q1_time
+c5149ed Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+d18f1cd Merge branch 'feature/processing' into develop
+b23a4f4 Merge pull request #39 from twjuanherrera/feature/processing
+1b17803 Revert "feat: q1_time"
+5ffe4f3 Merge pull request #38 from twjuanherrera/feature/q1_time
+d9a467d feat: q1_time testing
+fc53a58 feat: Import corrections
+fa47dd3 feat: q1_time
+2b7e8a2 Merge pull request #37 from twjuanherrera/feature/notebook
+e67b525 Merge pull request #36 from twjuanherrera/feature/measure
+a9cbe13 feat: deleted imports
+be73564 feat: Add imports
+958a8af Merge pull request #35 from twjuanherrera/feature/measure
+08b7eeb feat: new measure py file
+4d6cd74 Merge pull request #34 from twjuanherrera/feature/notebook
+438b873 feat: clean code for notebook time measure
+fe324b7 Merge pull request #33 from twjuanherrera/feature/notebook
+4831ddc feat: Total time measue
+63d3548 Merge pull request #32 from twjuanherrera/feature/notebook
+aadecfb feat: Type notations
+61b9253 Merge pull request #31 from twjuanherrera/feature/notebook
+b2246ec feat: Queries import and usage test from notebook
+1f9f085 Merge pull request #30 from twjuanherrera/feature/queries
+8981b91 Add: Top 10 most influential users on Twitter
+c46ae81 Merge pull request #29 from twjuanherrera/feature/queries
+6551862 feat: Top 10 user emojis
+d6f875b Merge pull request #28 from twjuanherrera/feature/queries
+a5d4d07 feat: Queries python file
+971b094 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+f81836d Merge branch 'feature/notebook' into develop
+8ec9641 Merge pull request #27 from twjuanherrera/feature/notebook
+3a62f22 feat: Top 10 users and dates query
+cec415e Merge pull request #26 from twjuanherrera/feature/ignore
+a320875 feat: ignore pycache files
+8782bf2 Merge pull request #25 from twjuanherrera/feature/notebook
+9e94327 feat: env variables for constants
+b134fc6 Merge pull request #24 from twjuanherrera/feature/notebook
+d86ce50 feat: logging definitions
+882aa5c Merge pull request #23 from twjuanherrera/feature/notebook
+5a754ed feat: Clean Code and Documentation
+aac4a64 Merge pull request #22 from twjuanherrera/feature/notebook
+124783d feat: initial vars and json with bigquery
+7630a8b Merge pull request #21 from twjuanherrera/feature/requirements
+5152c5e feat: delete unused pyarrow
+eaaaed9 Merge pull request #20 from twjuanherrera/feature/requirements
+569cb78 feat: pyarrow and bigquery
+b1937a8 Merge pull request #19 from twjuanherrera/feature/notebook
+49037fc feat: Clean Code and BigQuery
+078c00c Merge pull request #18 from twjuanherrera/feature/notebook
+cf03b0e feat: error handling and unzip in bucket
+12f6450 Merge pull request #17 from twjuanherrera/feature/notebook
+22cc3bd feat: Upload to GS in raw folder
+cd98a5d Merge pull request #16 from twjuanherrera/feature/notebook
+6d0e03f feat: fixed lost logic for zip download and upload
+b06baa3 Merge pull request #15 from twjuanherrera/feature/notebook
+f97593a feat: Tweets zip download
+0a5318d feat: Deleted unused code blocks
+80c8e1e Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+be949f6 Merge branch 'feature/requirements' into develop
+02f5d21 Merge pull request #14 from twjuanherrera/feature/requirements
+2727787 feat: Deleted unused libraries
+13749c5 Merge branch 'feature/notebook' into develop
+1312c03 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+6fa3b4c Merge branch 'develop' into feature/notebook
+3d933dc Merge pull request #13 from twjuanherrera/feature/notebook
+abe8a11 feat: New system preparation for Colab and GDrive
+0f8099a Merge branch 'feature/ignore' into develop
+fece9a7 Merge pull request #12 from twjuanherrera/feature/ignore
+a42fe20 feat: Ignore driveupload folder
+33bb1a7 Merge pull request #11 from twjuanherrera/feature/notebook
+14fa205 feat: changed comment for keeping remote on git flow
+72982ec Merge branch 'feature/notebook' into develop
+3190414 Merge pull request #10 from twjuanherrera/feature/notebook
+0eda759 Merge branch 'develop' into feature/notebook
+74f7c4e feat: Notebook documentation, configuration and spark tests
+db1e093 Merge pull request #9 from twjuanherrera/feature/requirements
+81af3f7 feat: Spark required libraries and Jupyter Kernel pip versions
+2d1fb44 Merge branch 'main' of https://github.com/twjuanherrera/latam-challenge
+c2d659a Merge tag 'reload' into develop
+5947c79 Merge branch 'hotfix/reload'
+5216655 Merge pull request #7 from twjuanherrera/hotfix/reload
+7fb6838 hotfix: Fix issue with load_ext
+32fee4c Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+b279ccc Merge tag 'v0.0.2' into develop
+e09eadd Merge branch 'release/v0.0.2'
+afd65c7 Merge pull request #6 from twjuanherrera/release/v0.0.2
+ecbb008 rel: Third release test with gitflow
 c6a4989 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
 4af1588 Merge tag 'v0.0.1' into develop
 5d576de Merge branch 'release/v0.0.1'
