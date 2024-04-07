@@ -1,23 +1,37 @@
-from typing import List, Tuple
-import datetime
-from google.cloud import bigquery
-from processing import process_bigquery_results
-from memory_profiler import profile
+from typing import List, Tuple  # For type annotations
+from google.cloud import bigquery  # For interacting with BigQuery
+from processing import process_bigquery_results  # External function for processing results
+import memory_profiler  # Module for memory profiling # type: ignore
 
-@profile
-def q3_memory(
-    client: bigquery.Client,
-    query: str
-) -> List[Tuple[str, int]]:
-    """
-    Executes a BigQuery SQL query and returns a list of tuples containing dates and strings extracted from the results.
+@memory_profiler.profile  # Decorator to profile memory usage
+def q3_memory(client: bigquery.Client, query: str) -> List[Tuple[str, int]]:
+   """
+   Executes a BigQuery query, profiles its memory usage, extracts string-integer pairs,
+   and considers memory-efficient return strategies for large datasets.
 
-    Args:
-        client (bigquery.Client): A BigQuery client object.
-        query (str): The BigQuery SQL query to be executed.
+   Args:
+       client: BigQuery client object.
+       query: BigQuery SQL query string.
 
-    Returns:
-        List[Tuple[datetime.date, str]]: A list of tuples where each tuple contains a datetime.date object and a string.
-    """
+   Returns:
+       List of tuples containing string-integer pairs extracted from BigQuery results.
+       Might suggest alternative return strategies (streaming or pagination) for large results.
+   """
 
-    return process_bigquery_results(client, query)
+   try:
+       # Delegate query execution and data extraction to the external function:
+       results = process_bigquery_results(client, query)
+
+       # Extract string-integer pairs, validating data format:
+       formatted_results = [(row[0], int(row[1])) for row in results]
+
+       # Consider memory-efficient return strategies based on result size:
+       if len(formatted_results) > 1000:  # Adjust threshold as needed
+           print("Warning: Returning a large dataset. Consider using streaming or pagination for memory optimization.")
+           # Potentially explore implementation of streaming or pagination techniques here
+
+       return formatted_results
+
+   except ValueError as e:
+       print(f"Error converting data to string and integer pairs: {e}")
+       return []  # Return an empty list to signal the error
