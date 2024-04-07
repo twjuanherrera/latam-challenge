@@ -1,3 +1,11 @@
+a0b2a60 Merge pull request #91 from twjuanherrera/hotfix/v1.0.0
+c49f036 hotfix: Output handling for bigqery processing
+da18c91 Merge pull request #90 from twjuanherrera/develop
+e1e0cf2 Merge branch 'develop' of https://github.com/twjuanherrera/latam-challenge into develop
+36031aa Merge tag 'v1.0.0' into develop
+d250bb9 Merge branch 'release/v1.0.0'
+be71155 Merge pull request #89 from twjuanherrera/release/v1.0.0
+48f0abc rel: final MVP version v1.0.0 of LATAM Challenge
 c53c8cf Merge pull request #88 from twjuanherrera/feature/storage
 4cdae8e Merge pull request #87 from twjuanherrera/feature/q3_time
 64de2b9 Merge pull request #86 from twjuanherrera/feature/q3_memory
