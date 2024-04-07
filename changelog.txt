@@ -1,3 +1,4 @@
+80edc45 rel: V1.0.1 MVP LATAM Challenge
 a0b2a60 Merge pull request #91 from twjuanherrera/hotfix/v1.0.0
 c49f036 hotfix: Output handling for bigqery processing
 da18c91 Merge pull request #90 from twjuanherrera/develop
