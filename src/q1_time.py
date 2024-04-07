@@ -1,23 +1,27 @@
-from typing import List, Tuple
-import datetime
-from google.cloud import bigquery
-from processing import process_bigquery_results
-import line_profiler
+import datetime  # For working with dates
+from typing import List, Tuple  # For type annotations
+from google.cloud import bigquery  # For interacting with BigQuery
+from processing import process_bigquery_results  # External function for processing results
+import line_profiler  # Module for line-by-line profiling # type: ignore
 
+# Decorator for line-by-line profiling of the function's execution time
 @line_profiler.profile
-def q1_time(
-    client: bigquery.Client,
-    query: str
-) -> List[Tuple[datetime.date, str]]:
+def q1_time(client: bigquery.Client, query: str) -> List[Tuple[datetime.date, str]]:
     """
-    Executes a BigQuery SQL query and returns a list of tuples containing dates and strings extracted from the results.
+    Executes a BigQuery query, profiles its execution time line-by-line,
+    and returns extracted date-string pairs.
 
     Args:
-        client (bigquery.Client): A BigQuery client object.
-        query (str): The BigQuery SQL query to be executed.
+        client: BigQuery client object.
+        query: BigQuery SQL query string.
 
     Returns:
-        List[Tuple[datetime.date, str]]: A list of tuples where each tuple contains a datetime.date object and a string.
+        List of tuples containing date-string pairs extracted from BigQuery results.
     """
 
+    # Delegate query execution and data extraction to the external function:
+    # - Assumes 'process_bigquery_results' handles query execution, result processing,
+    #   and extraction of date-string pairs.
+    # - The decorator will profile the execution time of each line within this function,
+    #   including the time spent within 'process_bigquery_results'.
     return process_bigquery_results(client, query)
