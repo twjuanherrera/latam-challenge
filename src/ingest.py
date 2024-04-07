@@ -1,112 +1,71 @@
-#TODO: authenticate_google_drive, download_file_from_drive must be on gdrive feature
-#TODO: decompress_zip_file must be in common feature
+# Import libraries for working with Google Cloud Storage and file-like objects
+import io # For working with inputs and outputs (downloaded file content)
+from google.cloud import storage  # For working with Google Cloud Storage
 
-from google.colab import auth
-from googleapiclient.discovery import build
-import io
-from googleapiclient.http import MediaIoBaseDownload
-from google.cloud import storage
-import zipfile
-from typing import Any
-
-def authenticate_google_drive() -> None:
-    """Authenticates to Google Drive using the user's credentials.
-
-    Args:
-        None
-    """
-    try:
-        auth.authenticate_user()
-    except Exception as e:
-        logging.error(f"Error authenticating to Google Drive: {e}")
-        raise
-
-
-def download_file_from_drive(
-    drive_service: Any, file_id: str
-) -> io.BytesIO:
-    """Downloads a file from Google Drive.
-
-    Args:
-        drive_service (Any): The Google Drive service resource (in the build function returns Any).
-        file_id (str): The ID of the file to download.
-
-    Returns:
-        io.BytesIO: The downloaded file content as a BytesIO object.
-    """
-    downloaded: io.BytesIO = io.BytesIO()
-    try:
-        request = drive_service.files().get_media(fileId=file_id)
-        downloader = MediaIoBaseDownload(downloaded, request)
-        done = False
-        while not done:
-            status, done = downloader.next_chunk()
-            print(f'Downloading {int(status.progress() * 100)}%')
-        downloaded.seek(0)
-        return downloaded
-    except Exception as e:
-        print(f"Error downloading file: {e}")
-        raise
-
-
-def upload_file_to_cloud_storage(
-    bucket: storage.Bucket, folder_name: str, downloaded: io.BytesIO, zip_file_name: str
+def upload_drive_file_to_cloud_storage(
+    bucket: storage.Bucket, 
+    folder_name: str, 
+    downloaded: io.BytesIO, 
+    zip_file_name: str
 ) -> storage.Blob:
     """Uploads a file to Google Cloud Storage.
 
+    This function uploads a file provided as a BytesIO object to a specified folder
+    within a Google Cloud Storage bucket with a conditional check.
+
     Args:
-        bucket (Bucket): Google Cloud Storage bucket.
-        folder_name (str): The name of the folder within the bucket where the file will be uploaded.
-        downloaded (io.BytesIO): The downloaded file to upload.
+        bucket (storage.Bucket): The Google Cloud Storage bucket where the file will be uploaded.
+        folder_name (str): The name of the folder within the bucket to upload the file to.
+        downloaded (io.BytesIO): The BytesIO object containing the file data to upload.
         zip_file_name (str): The name of the file to be uploaded.
 
     Returns:
-        google.cloud.storage.Blob: The uploaded blob object.
+        storage.Blob: The uploaded blob object representing the uploaded file in Cloud Storage.
+
+    Assumptions:
+        - The user has authenticated with Google Cloud and has permission to access and write to the specified bucket.
+        - The `downloaded` object is a valid BytesIO object containing the file data.
+
+    Suggestions for Improvement:
+        - Error Handling: Implement checks for potential errors during upload (e.g., network errors, permission issues). Use `try-except` blocks with informative error messages.
+        - Progress Reporting: For large files, consider adding progress reporting mechanisms using third-party libraries or manual tracking.
+        - Variable Naming: Use more descriptive variable names (e.g., `uploaded_file` instead of `downloaded`).
+        - Type Annotations: Consider adding type annotations for clarity and potential type checking.
+        - Folder Creation: Explore alternative methods like `Blob.make_dirs()`.
+        - Logging: Use a logging library for structured logging instead of `print` statements.
     """
+
+    # Create a blob object referencing the folder path within the bucket
     folder_blob: storage.Blob = bucket.blob(f"{folder_name}/")
 
-    # Check and create folder if it doesn't exist
+    # Check if the folder exists. If not, create an empty file object to serve as a placeholder.
     if not folder_blob.exists():
-        folder_blob.upload_from_string('', content_type='application/x-www-form-urlencoded;charset=UTF-8')
+        try:
+            folder_blob.upload_from_string('', content_type='application/x-www-form-urlencoded;charset=UTF-8')
+            print(f"Folder '{folder_name}' created in bucket gs://{bucket.name}")  # Informational message
+        except Exception as e:  # Catch potential errors during folder creation
+            print(f"Error creating folder: {e}")
+            raise  # Re-raise the exception for further handling
 
-    # Upload the file to the specified folder
+    # Create a blob object referencing the specific file to be uploaded within the folder
     blob: storage.Blob = bucket.blob(f'{folder_name}/{zip_file_name}')
-    blob.upload_from_file(downloaded, content_type='application/zip')
 
-    print(f'File uploaded to gs://{bucket.name}/{blob.name}')
+    # Download as string and get the size if the ZIP blob exists in the bucket
+    if blob.exists():
+        existing_blob_data: str = blob.download_as_string()
+        existing_blob_size: int = len(existing_blob_data)
+
+    # Check if a blob with the same name and size already exists
+    if blob.exists() and existing_blob_size == len(downloaded.getvalue()):
+        print(f"File '{zip_file_name}' already exists on cloud storage with exact matching size, skipping upload.")
+    else:
+        # Upload the file if conditions aren't met
+        try:
+            blob.upload_from_string(downloaded.getvalue(), content_type='application/zip')
+            print(f'File uploaded to gs://{bucket.name}/{blob.name}')
+        except Exception as e:  # Catch potential errors during upload
+            print(f"Error uploading file: {e}")
+            raise  # Re-raise the exception for further handling
+
+    # Return the uploaded blob object
     return blob
-
-
-def decompress_zip_file(
-    bucket: storage.Bucket, folder_name: str, zip_file_name: str
-) -> str:
-    """Decompresses a ZIP file stored in Google Cloud Storage.
-
-    Args:
-        bucket (Bucket): Google Cloud Storage bucket where the ZIP file is stored.
-        folder_name (str): The name of the folder within the bucket where the ZIP file is located.
-        zip_file_name (str): The name of the ZIP file
-
-    Returns:
-        str: The unzipped file name.
-    """
-
-    json_file_name: str = ''
-    blob_name: str = ''
-
-    try:
-        zip_blob: storage.Blob = bucket.blob(f'{folder_name}/{zip_file_name}')
-        with zipfile.ZipFile(io.BytesIO(zip_blob.download_as_string()), 'r') as z:
-            for file_info in z.infolist():
-                with z.open(file_info) as file:
-                    blob_name: str = f'{folder_name}/{file_info.filename}'
-                    json_file_name: str = file_info.filename
-                    json_blob: storage.Blob = bucket.blob(blob_name)
-                    json_blob.upload_from_file(file)
-        print(f'File decompressed in gs://{bucket.name}/{blob_name}')
-    except zipfile.BadZipFile:
-        logging.warning(f'The file in gs://{bucket.name}/{folder_name}/{zip_file_name} is not a valid ZIP file.')
-    except Exception as e:
-        logging.error(f'Error decompressing file: {e}')
-    finally:
-        return json_file_name
